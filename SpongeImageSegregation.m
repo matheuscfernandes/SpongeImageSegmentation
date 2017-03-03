@@ -17,4 +17,9 @@ I=imrotate(I,43);
 
 I=imcrop(I,[1977.5 2414.5 241 189]);
 
-imshow(I)
+
+I2=imbinarize(I);
+
+I2=imshow(I2);
+I2 = bwareaopen(I2, 50);
+imshow(I2)
