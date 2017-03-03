@@ -31,5 +31,4 @@ mask = boundarymask(I);
 imshow(I2)
 figure()
 imshow(I)
-hold on
-imshow(mask,'InitialMagnification',67)
+imshow(mask)
