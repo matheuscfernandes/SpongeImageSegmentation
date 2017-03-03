@@ -13,6 +13,8 @@ FileName='PostProcessing.JPG';
 
 %PostProcessing of Image
 I=imread([Directory,FileName]);
-I=imcrop(I,[1642.5 1002.5 356 364]);
+I=imrotate(I,43);
+
+I=imcrop(I,[1977.5 2414.5 241 189]);
 
 imshow(I)
