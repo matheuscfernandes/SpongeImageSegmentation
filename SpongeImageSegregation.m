@@ -21,7 +21,7 @@ I2=imgaussfilt(I,1);
 
 
 I=im2bw(I2,0.35);
-mask = boundarymask(I);
+mask = (boundarymask(I));
 % s = regionprops(I,'centroid');
 % centroids = cat(1, s.Centroid);
 
@@ -30,5 +30,16 @@ mask = boundarymask(I);
 % I2 = bwareaopen(I2, 50);
 imshow(I2)
 figure()
-imshow(I)
-imshow(mask)
+E=I; I=mask;
+
+imshow(E, 'InitialMag', 'fit') 
+imshow(I, 'InitialMag', 'fit') 
+
+imshow(E, 'InitialMag', 'fit') 
+% Make a truecolor all-green image. 
+green = cat(3, ones(size(E)),... 
+    zeros(size(E)), zeros(size(E))); 
+hold on 
+h = imshow(green); 
+hold off 
+set(h, 'AlphaData', I)
