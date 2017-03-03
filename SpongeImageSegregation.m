@@ -22,12 +22,17 @@ I2=imgaussfilt(I,1);
 
 I=im2bw(I2,0.35);
 mask = (boundarymask(I));
+cc = bwconncomp(mask, 4);
+labeled = labelmatrix(cc);
+RGB_label = label2rgb(labeled, @spring, 'c', 'shuffle');
+imshow(RGB_label)
 % s = regionprops(I,'centroid');
 % centroids = cat(1, s.Centroid);
 
 % 
 % I2=imshow(I2);
 % I2 = bwareaopen(I2, 50);
+figure()
 imshow(I2)
 figure()
 E=I; I=mask;
