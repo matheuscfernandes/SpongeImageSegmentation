@@ -1,3 +1,4 @@
+close all
 %{ 
 Immage Recognition Program for Sponge
 By: Matheus C. Fernandes 
@@ -16,10 +17,19 @@ I=imread([Directory,FileName]);
 I=imrotate(I,43);
 
 I=imcrop(I,[1977.5 2414.5 241 189]);
+I2=imgaussfilt(I,1);
 
 
-I2=imbinarize(I);
+I=im2bw(I2,0.35);
 
-I2=imshow(I2);
-I2 = bwareaopen(I2, 50);
+s = regionprops(I,'centroid');
+centroids = cat(1, s.Centroid);
+
+% 
+% I2=imshow(I2);
+% I2 = bwareaopen(I2, 50);
 imshow(I2)
+figure()
+imshow(I)
+hold on
+plot(centroids(:,1),centroids(:,2), 'b*')
