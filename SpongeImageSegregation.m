@@ -21,9 +21,9 @@ I2=imgaussfilt(I,1);
 
 
 I=im2bw(I2,0.35);
-
-s = regionprops(I,'centroid');
-centroids = cat(1, s.Centroid);
+mask = boundarymask(I);
+% s = regionprops(I,'centroid');
+% centroids = cat(1, s.Centroid);
 
 % 
 % I2=imshow(I2);
@@ -32,4 +32,4 @@ imshow(I2)
 figure()
 imshow(I)
 hold on
-plot(centroids(:,1),centroids(:,2), 'b*')
+imshow(mask,'InitialMagnification',67)
