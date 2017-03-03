@@ -36,10 +36,9 @@ imshow(E, 'InitialMag', 'fit')
 imshow(I, 'InitialMag', 'fit') 
 
 imshow(E, 'InitialMag', 'fit') 
-% Make a truecolor all-green image. 
-green = cat(3, ones(size(E)),... 
-    zeros(size(E)), zeros(size(E))); 
+% Make a truecolor image. 
+color = cat(3, ones(size(E)), zeros(size(E)), zeros(size(E))); 
 hold on 
-h = imshow(green); 
+h = imshow(color); 
 hold off 
 set(h, 'AlphaData', I)
