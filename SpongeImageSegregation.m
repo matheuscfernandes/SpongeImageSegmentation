@@ -10,16 +10,20 @@ diagonals of an actual biological sponge. This code takes as an input the
 image file name and obtains the volume fraction from a given image.
 %}
 Directory='Photos/2017-03-02_SpongesImageSegmentation/PostProcessing/';
-FileName='PostProcessing.JPG';
+FileName='UnCurved.png';
 
 %PostProcessing of Image
 I=imread([Directory,FileName]);
-I=imrotate(I,43);
-
-I=imcrop(I,[1977.5 2414.5 241 189]);
-I2=imgaussfilt(I,1);
+% I=imrotate(I,43);
 
 
+
+% I=imcrop(I,[1977.5 2414.5 241 189]);
+% I=imcrop(I,[1600 2390 700 200]);
+I2=imgaussfilt(I,1.5);
+
+imshow(I)
+figure()
 I=im2bw(I2,0.35);
 mask = (boundarymask(I));
 cc = bwconncomp(mask, 4);
