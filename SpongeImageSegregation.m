@@ -17,12 +17,21 @@ I=imread([Directory,FileName]);
 % I=imrotate(I,43);
 
 
+I=imcrop(I,[4.5 8.5 1833 488]);
 
 % I=imcrop(I,[1977.5 2414.5 241 189]);
 % I=imcrop(I,[1600 2390 700 200]);
 I2=imgaussfilt(I,1.5);
 
 imshow(I)
+spacing=230;
+xStretch=1.32;
+ymove=14;
+xMove=2;xMoveFactor=xMove+xStretch*2*spacing*.995;
+Design_Plot([xMove,ymove],[xStretch,1],spacing)
+Design_Plot([xMove+xMoveFactor,ymove],[xStretch,1],spacing)
+Design_Plot([xMove+xMoveFactor*2,ymove],[xStretch,1],spacing)
+
 figure()
 I=im2bw(I2,0.35);
 mask = (boundarymask(I));
@@ -51,3 +60,9 @@ hold on
 h = imshow(color); 
 hold off 
 set(h, 'AlphaData', I)
+spacing=230;
+xStretch=1.32;
+xMove=2;xMoveFactor=xMove+xStretch*2*spacing*.995;
+Design_Plot([xMove,20],[xStretch,1],spacing)
+Design_Plot([xMove+xMoveFactor,20],[xStretch,1],spacing)
+Design_Plot([xMove+xMoveFactor*2,20],[xStretch,1],spacing)
